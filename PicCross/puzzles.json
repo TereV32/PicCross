@@ -1,18 +1,88 @@
 [
     {
         "id": "1",
-        "name": "P",
-        "gridSize": [7,7],
-        "solution": [[0,0,0,0,0,0,0], [0,1,1,1,0,0,0], [0,1,0,0,1,0,0], [0,1,1,1,0,0,0], [0,1,0,0,0,0,0], [0,1,0,0,0,0,0], [0,0,0,0,0,0,0]],
-        "hintsXArray": [[0], [5], [1,1], [1,1], [1], [0], [0]],
-        "hintsYArray": [[0], [3], [1,1], [3], [1], [1], [0]]
+        "level": "easy",
+        "colors": [[{"color": "white", "count": 0}], [{"color": "black", "count": 1}]],
+        "gridSize": [5,5],
+        "solution": [[1,1,1,1,1], [1,0,0,0,0], [1,1,1,1,1], [0,0,0,0,1], [1,1,1,1,1]],
+        "hintsXArray": [
+            [{"count": 3, "color": "black"}, {"count": 1, "color": "black"}],
+            [{"count": 1, "color": "black"}, {"count": 1, "color": "black"}, {"count": 1, "color": "black"}],
+            [{"count": 1, "color": "black"}, {"count": 1, "color": "black"}, {"count": 1, "color": "black"}],
+            [{"count": 1, "color": "black"}, {"count": 1, "color": "black"}, {"count": 1, "color": "black"}],
+            [{"count": 1, "color": "black"}, {"count": 3, "color": "black"}]
+        ],
+        "hintsYArray": [
+            [{"count": 5, "color": "black"}],
+            [{"count": 1, "color": "black"}],
+            [{"count": 5, "color": "black"}],
+            [{"count": 1, "color": "black"}],
+            [{"count": 5, "color": "black"}]
+        ]
     },
     {
         "id": "2",
-        "name": "smiley face",
-        "gridSize": [9,9],
-        "solution": [[0,0,1,1,1,1,1,0,0], [0,1,0,0,0,0,0,1,0], [1,0,0,0,0,0,0,0,1], [1,0,0,1,0,1,0,0,1], [1,0,0,0,0,0,0,0,1], [1,0,1,0,0,0,1,0,1], [1,0,0,1,1,1,0,0,1], [0,1,0,0,0,0,0,1,0], [0,0,1,1,1,1,1,0,0]],
-        "hintsXArray": [[5], [1,1], [1,1,1], [1,1,1,1], [1,1,1], [1,1,1,1], [1,1,1], [1,1], [5]],
-        "hintsYArray": [[5], [1,1], [1,1], [1,1,1,1], [1,1], [1,1,1,1], [1,3,1], [1,1], [5]]
+        "level": "easy",
+        "colors": [[{"color": "white", "count": 0}], [{"color": "black", "count": 1}]],
+        "gridSize": [5,5],
+        "solution": [[0,1,1,1,0], [1,1,0,1,1], [1,0,0,0,1], [1,1,0,1,1], [0,1,1,1,0]],
+        "hintsXArray": [
+            [{"count": 3, "color": "black"}],
+            [{"count": 2, "color": "black"}, {"count": 2, "color": "black"}],
+            [{"count": 1, "color": "black"}, {"count": 1, "color": "black"}],
+            [{"count": 2, "color": "black"}, {"count": 2, "color": "black"}],
+            [{"count": 3, "color": "black"}]
+        ],
+        "hintsYArray": [
+            [{"count": 3, "color": "black"}],
+            [{"count": 2, "color": "black"}, {"count": 2, "color": "black"}],
+            [{"count": 1, "color": "black"}, {"count": 1, "color": "black"}],
+            [{"count": 2, "color": "black"}, {"count": 2, "color": "black"}],
+            [{"count": 3, "color": "black"}]
+        ]
     },
+    {
+        "id": "3",
+        "level": "easy",
+        "colors": [[{"color": "white", "count": 0}], [{"color": "blue", "count": 2}], [{"color": "yellow", "count": 3}], [{"color": "red", "count": 4}]],
+        "gridSize": [5,5],
+        "solution": [[0,2,2,2,0], [2,4,4,4,2], [2,4,3,4,2], [2,4,4,4,2], [0,2,2,2,0]],
+        "hintsXArray": [
+            [{"count": 3, "color": "blue"}],
+            [{"count": 1, "color": "blue"}, {"count": 3, "color": "red"}, {"count": 1, "color": "blue"}],
+            [{"count": 1, "color": "blue"}, {"count": 1, "color": "red"}, {"count": 1, "color": "yellow"}, {"count": 1, "color": "red"}, {"count": 1, "color": "blue"}],
+            [{"count": 1, "color": "blue"}, {"count": 3, "color": "red"}, {"count": 1, "color":"blue"}],
+            [{"count": 3, "color": "blue"}]
+        ],
+        "hintsYArray": [
+            [{"count": 3, "color": "blue"}],
+            [{"count": 1, "color": "blue"}, {"count": 3, "color": "red"}, {"count": 1, "color": "blue"}],
+            [{"count": 1, "color": "blue"}, {"count": 1, "color": "red"}, {"count": 1, "color": "yellow"}, {"count": 1, "color": "red"}, {"count": 1, "color": "blue"}],
+            [{"count": 1, "color": "blue"}, {"count": 3, "color": "red"}, {"count": 1, "color":"blue"}],
+            [{"count": 3, "color": "blue"}]
+        ]
+    },
+    {
+        "id": "4",
+        "level": "easy",
+        "colors": [
+            [{"color": "white", "count": 0}], [{"color": "black", "count": 1}]],
+        "gridSize": [5,5],
+        "solution": [[0,0,0,1,0], [1,0,1,1,1], [0,1,1,1,0], [0,1,0,1,0], [0,1,0,1,0]],
+        "hintsXArray": [
+            [{"count": 1, "color": "black"}],
+            [{"count": 3, "color": "black"}],
+            [{"count": 2, "color": "black"}],
+            [{"count": 5, "color": "black"}],
+            [{"count": 1, "color": "black"}]
+        ],
+        "hintsYArray": [
+            [{"count": 1, "color": "black"}],
+            [{"count": 1, "color": "black"}, {"count": 3, "color": "black"}],
+            [{"count": 3, "color": "black"}],
+            [{"count": 1, "color": "black"}, {"count": 1, "color": "black"}],
+            [{"count": 1, "color": "black"}, {"count": 1, "color": "black"}]
+        ]
+    }
 ]
+

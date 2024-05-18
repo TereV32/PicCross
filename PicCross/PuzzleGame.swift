@@ -13,11 +13,11 @@ struct PuzzleGame: View {
     @Binding var puzzleComplete: Bool
     @Binding var puzzleFailed: Bool
     @State var count = 0
-    
-    @State var toolSelected: String = "Fill"
+    @Binding var mistakes: Array<Bool>
+    @Binding var toolSelected: String
+    @Binding var colorSelected: Int
     @State var squareColor: Color  = .white
     @State var emptySquare = ""
-    @State var mistake = [false, false, false]
     
     var body: some View {
         VStack {
@@ -25,116 +25,29 @@ struct PuzzleGame: View {
                 Text("Mistakes: ")
                 Text("X")
                     .font(.headline)
-                    .foregroundStyle(mistake[0] ? Color.red : Color.gray)
-                    .opacity(mistake[0] ? 1.0 : 0.50)
+                    .foregroundStyle(mistakes[0] ? Color.red : Color.gray)
+                    .opacity(mistakes[0] ? 1.0 : 0.50)
                 Text("X")
                     .font(.headline)
-                    .foregroundStyle(mistake[1] ? Color.red : Color.gray)
-                    .opacity(mistake[1] ? 1.0 : 0.50)
+                    .foregroundStyle(mistakes[1] ? Color.red : Color.gray)
+                    .opacity(mistakes[1] ? 1.0 : 0.50)
                 Text("X")
                     .font(.headline)
-                    .foregroundStyle(mistake[2] ? Color.red : Color.gray)
-                    .opacity(mistake[2] ? 1.0 : 0.50)
+                    .foregroundStyle(mistakes[2] ? Color.red : Color.gray)
+                    .opacity(mistakes[2] ? 1.0 : 0.50)
             }
-            Grid {
-                GridRow {
-                    Color.clear
-                        .gridCellUnsizedAxes([.vertical, .horizontal])
-                    ForEach(puzzleData.gridSolution.indices, id: \.self) { column in
-                        ZStack(alignment: .bottom) {
-                            Rectangle().foregroundStyle(Color.gray)
-                                .opacity(0.25)
-                                .frame(width: 15, height: 55)
-                            VStack {
-                                ForEach(puzzleData.hintsXArray[column].indices, id: \.self) { num in
-                                    Text("\(puzzleData.hintsXArray[column][num])")
-                                        .frame(width: 12, height: 12)
-                                        .font(.system(size: 10))
-                                }
-                                .padding(-4)
-                            }
-                            .padding(4)
-                        }
-                        
-                    }
-                }
-                ForEach(puzzleData.gridSolution.indices, id: \.self) { row in
-                    GridRow {
-                        ZStack(alignment: .trailing) {
-                            Rectangle().foregroundStyle(Color.gray)
-                                .opacity(0.25)
-                                .frame(width: 55, height: 15)
-                            HStack {
-                                ForEach(puzzleData.hintsYArray[row].indices, id: \.self) { num in
-                                    Text("\(puzzleData.hintsYArray[row][num])")
-                                        .font(.system(size: 10))
-                                        .frame(width: 12.0, height: 12.0)
-                                }
-                                .padding(-4)
-                            }
-                            .padding(4)
-                        }
-                        ForEach(puzzleData.gridSolution[row].indices, id: \.self) { column in
-                            SquareView(squareVal: puzzleData.gridState[row][column], squareColorVal: puzzleData.gridState[row][column])
-                                .onTapGesture {
-                                    checkSolution(squareVal: puzzleData.gridState[row][column], row: row, column: column, tool: toolSelected)
-                                }
-                        }
-                    }
-                }
-            }
-            HStack {
-                Button(action: {
-                    toolSelected = "Empty"
-                    print(toolSelected)
-                }, label: {
-                    Rectangle().foregroundStyle(.gray)
-                        .frame(width: 20, height: 20)
-                })
-                Button(action: {
-                    toolSelected = "Fill"
-                    print(toolSelected)
-                }, label: {
-                    Rectangle().foregroundStyle(.black)
-                        .frame(width: 20, height: 20)
-                })
-            }
+            
+            PuzzleGrid(toolSelected: $toolSelected, mistakes: $mistakes, puzzleComplete: $puzzleComplete, puzzleFailed: $puzzleFailed, colorSelected: $colorSelected)
+            
+            PuzzleToolbar(toolSelected: $toolSelected, colorSelected: $colorSelected)
             .padding()
-        }
-    }
-    
-    func checkSolution(squareVal: Int, row: Int, column: Int, tool: String) {
-        if toolSelected == "Fill" {
-            if puzzleData.gridSolution[row][column] == 0 {
-                print(squareVal)
-                mistake[mistake.firstIndex(where: {$0 == false}) ?? 0] = true
-                print(puzzleData.gridSolution[row][column])
-                puzzleData.gridState[row][column] = -1
-            } else if puzzleData.gridSolution[row][column] == 1{
-                print(puzzleData.gridSolution[row][column])
-                puzzleData.gridState[row][column] = 1
-            }
-        } else if toolSelected == "Empty" {
-            if puzzleData.gridSolution[row][column] == 0 {
-                print(squareVal)
-                print(puzzleData.gridSolution[row][column])
-                puzzleData.gridState[row][column] = 2
-            } else if squareVal == 0 && puzzleData.gridSolution[row][column] == 1{
-                print(puzzleData.gridSolution[row][column])
-                mistake[mistake.firstIndex(where: {$0 == false}) ?? 0] = true
-                puzzleData.gridState[row][column] = -1
-            }
-        }
-        if puzzleData.gridSolution == puzzleData.gridState {
-            puzzleComplete = true
-        }
-        if mistake[2] == true {
-            puzzleFailed = true
         }
     }
 }
 
 struct SquareView: View {
+    
+    @EnvironmentObject var puzzleData : PuzzleData
     let squareVal: Int
     let squareColorVal: Int
 
@@ -145,7 +58,11 @@ struct SquareView: View {
         case 1:
                 .black
         case 2:
-                .gray
+                .blue
+        case 3:
+                .yellow
+        case 4:
+                .red
         case -1:
                 .white
         default:
@@ -161,16 +78,34 @@ struct SquareView: View {
                 .border(Color.black)
                 .padding(-5.0)
             
-            if squareVal == -1 {
+            if squareVal == -2 {
                 Text("X")
                     .frame(width: 20, height: 20)
                     .font(.system(size: 20))
                     .foregroundColor(Color.red)
             }
+            
+        }
+    }
+    
+    func colorFromString(color: String) -> Color {
+        switch color {
+        case "black":
+            return .black
+        case "white":
+            return .white
+        case "red":
+            return .red
+        case "blue":
+            return .blue
+        case "yellow":
+            return .yellow
+        default:
+            return .black
         }
     }
 }
 
 #Preview {
-    PuzzleGame(puzzleComplete: .constant(false), puzzleFailed: .constant(false)).environmentObject(PuzzleData())
+    PuzzleGame(puzzleComplete: .constant(false), puzzleFailed: .constant(false), mistakes: .constant([false, false, false]), toolSelected: .constant("Fill"), colorSelected: .constant(1)).environmentObject(PuzzleData())
 }

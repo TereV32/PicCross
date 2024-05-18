@@ -11,6 +11,9 @@
 		AC4687ED2BF3C52B00964987 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4687EC2BF3C52B00964987 /* ContentView.swift */; };
 		AC4687EF2BF3C52C00964987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC4687EE2BF3C52C00964987 /* Assets.xcassets */; };
 		AC4687F22BF3C52C00964987 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC4687F12BF3C52C00964987 /* Preview Assets.xcassets */; };
+		AC9E9F652BF7FC520052FB69 /* ColorPuzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E9F642BF7FC520052FB69 /* ColorPuzzle.swift */; };
+		AC9E9F672BF7FC810052FB69 /* PuzzleGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E9F662BF7FC810052FB69 /* PuzzleGrid.swift */; };
+		AC9E9F692BF806040052FB69 /* PuzzleToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E9F682BF806040052FB69 /* PuzzleToolbar.swift */; };
 		ACBD523E2BF6B60E002B0BB0 /* Puzzles.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD523D2BF6B60E002B0BB0 /* Puzzles.swift */; };
 		ACBD52402BF6B6D1002B0BB0 /* puzzles.json in Resources */ = {isa = PBXBuildFile; fileRef = ACBD523F2BF6B6D1002B0BB0 /* puzzles.json */; };
 		ACBD52422BF6B8E8002B0BB0 /* Bundle_Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD52412BF6B8E8002B0BB0 /* Bundle_Decodable.swift */; };
@@ -24,6 +27,9 @@
 		AC4687EC2BF3C52B00964987 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AC4687EE2BF3C52C00964987 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC4687F12BF3C52C00964987 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AC9E9F642BF7FC520052FB69 /* ColorPuzzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPuzzle.swift; sourceTree = "<group>"; };
+		AC9E9F662BF7FC810052FB69 /* PuzzleGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleGrid.swift; sourceTree = "<group>"; };
+		AC9E9F682BF806040052FB69 /* PuzzleToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleToolbar.swift; sourceTree = "<group>"; };
 		ACBD523D2BF6B60E002B0BB0 /* Puzzles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzles.swift; sourceTree = "<group>"; };
 		ACBD523F2BF6B6D1002B0BB0 /* puzzles.json */ = {isa = PBXFileReference; explicitFileType = text.json; fileEncoding = 4; path = puzzles.json; sourceTree = "<group>"; };
 		ACBD52412BF6B8E8002B0BB0 /* Bundle_Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle_Decodable.swift; sourceTree = "<group>"; };
@@ -65,6 +71,9 @@
 				AC4687EA2BF3C52B00964987 /* PicCrossApp.swift */,
 				AC4687EC2BF3C52B00964987 /* ContentView.swift */,
 				ACBD52452BF6D45F002B0BB0 /* PuzzleGame.swift */,
+				AC9E9F682BF806040052FB69 /* PuzzleToolbar.swift */,
+				AC9E9F662BF7FC810052FB69 /* PuzzleGrid.swift */,
+				AC9E9F642BF7FC520052FB69 /* ColorPuzzle.swift */,
 				ACBD52432BF6D1FD002B0BB0 /* PuzzleData.swift */,
 				AC4687EE2BF3C52C00964987 /* Assets.xcassets */,
 				AC4687F02BF3C52C00964987 /* Preview Content */,
@@ -156,7 +165,10 @@
 				ACBD523E2BF6B60E002B0BB0 /* Puzzles.swift in Sources */,
 				ACBD52422BF6B8E8002B0BB0 /* Bundle_Decodable.swift in Sources */,
 				AC4687ED2BF3C52B00964987 /* ContentView.swift in Sources */,
+				AC9E9F672BF7FC810052FB69 /* PuzzleGrid.swift in Sources */,
 				ACBD52442BF6D1FD002B0BB0 /* PuzzleData.swift in Sources */,
+				AC9E9F692BF806040052FB69 /* PuzzleToolbar.swift in Sources */,
+				AC9E9F652BF7FC520052FB69 /* ColorPuzzle.swift in Sources */,
 				AC4687EB2BF3C52B00964987 /* PicCrossApp.swift in Sources */,
 				ACBD52462BF6D45F002B0BB0 /* PuzzleGame.swift in Sources */,
 			);
